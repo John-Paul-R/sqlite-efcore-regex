@@ -14,9 +14,6 @@ public class MyDbContext : DbContext
         modelBuilder.Entity<Person>(
             entity =>
             {
-                entity
-                    .Property(p => p.Name)
-                    .UseCollation("NOCASE");
             });
     }
 }
@@ -30,7 +27,7 @@ public class Person
 
 public class Program
 {
-    private const string FLUID_END_PATTERN = @"fluid\s+end";
+    private const string FLUID_END_PATTERN = @"(?i)fluid\s+end";
 
     private const string POWER_END_REGEX = @"power\s+end";
 
